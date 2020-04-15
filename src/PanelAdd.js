@@ -6,18 +6,15 @@ class  PanelAdd extends React.Component{
         super(props);
         this.state ={
         title: '',
-        image: '',
         rating: 1
-        
-
         };
+
+    this.image = React.createRef();
     }
     onChangeTitle = (e) => {
         this.setState({title: e.target.value});
     }
-    onChangeImage = (e) => {
-        this.setState({image: e.target.value});
-    }
+
     onChangeRating = (e) => {
         const rating = parseInt(e.target.value)
         this.setState({rating: rating});
@@ -26,7 +23,7 @@ class  PanelAdd extends React.Component{
     onsubmit = (e) => {
         e.preventDefault();
         const title = this.state.title;
-        const image = this.state.image;
+        const image = this.image.current.files[0].name;
         const rating = this.state.rating;
 
         this.props.onadd({title: title, image: image, rating: rating});
@@ -40,11 +37,10 @@ class  PanelAdd extends React.Component{
                 <form onSubmit={this.onsubmit}>
                     <p>
                         <label >Titulo del libro</label>
-                        <input type="text" name="title" classNameI="input" onChange={this.onChangeTitle}></input>
-                    </p>
-                    <p>
-                        <label >Titulo del imagen</label>
-                        <input onChange={this.onChangeImage} type="text" name="image" classNameI="input"></input>
+                        <input type="text" name="title" className="input" onChange={this.onChangeTitle}></input>
+
+                        <label >Selecciona imagen </label>
+                        <input ref={this.image} type="file" name="image" className="fileInput"></input>
                     </p>
                     <p>
                         <label>Clasificacion</label>
@@ -56,8 +52,8 @@ class  PanelAdd extends React.Component{
                             <option value="5">5</option>
                         </select>
                     </p>
-                    <input type="submit" className="button btn-blue" value="Registrar libro"></input>
-                    <button onClick={this.props.oncancel} className="button btn-blue">Cancelar</button>
+                    <input type="submit" className="button btn-green" value="Registrar libro"></input>
+                    <button onClick={this.props.oncancel} className="button btn-red">Cancelar</button>
                 </form>
             </div>
         </div>
