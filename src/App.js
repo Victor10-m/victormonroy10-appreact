@@ -67,11 +67,18 @@ class App extends React.Component {
     this.setState({books: [...temp]});
     this.initBooks();    
   }
+  onRemove = id =>{
+    var temp = [...this.state.books];
+    const res = temp.filter(item => item.id != id);
+
+    this.setState({books: [...res]});
+    this.initBooks();  
+  }
   render (){
     return (
       <div className="app">
         <Menu title="Mis libros favoritos" onadd={this.onAdd} onsearch={this.onSearch}/>
-        <List items={this.state.copyBooks} onupdaterating={this.onUpdateRating}/>
+        <List items={this.state.copyBooks} onupdaterating={this.onUpdateRating} onremove={this.onRemove}/>
       </div>
     );
   }

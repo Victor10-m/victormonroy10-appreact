@@ -8,11 +8,11 @@ class Menu extends React.Component {
     constructor(props){
         super(props);
         this.state= {newItemPanel: false};
-        this.add = this.add.bind(this);
+        // this.add = this.add.bind(this);
         this.onCancel = this.onCancel.bind(this);
     }
 
-    add(){
+    add = () => {
         this.setState({newItemPanel: true});
         console.log('mensaje');
     }

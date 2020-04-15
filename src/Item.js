@@ -33,6 +33,10 @@ class Item extends React.Component {
 
      }
 
+     onremove = e =>{
+         this.props.onremove(this.props.id); 
+     }
+
     render(){
     return(
         <div className="item">
@@ -56,7 +60,7 @@ class Item extends React.Component {
                 </select>
             </div>
             <div className="actions">
-            <button>Eliminar</button>
+            <button onClick={this.onremove}>Eliminar</button>
             </div>
             
         </div>

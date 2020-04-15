@@ -12,13 +12,13 @@ class  PanelAdd extends React.Component{
 
         };
     }
-    onChangeTitle = (e)=>{
+    onChangeTitle = (e) => {
         this.setState({title: e.target.value});
     }
-    onChangeImage = (e)=>{
+    onChangeImage = (e) => {
         this.setState({image: e.target.value});
     }
-    onChangeRating = (e)=>{
+    onChangeRating = (e) => {
         const rating = parseInt(e.target.value)
         this.setState({rating: rating});
     }
@@ -39,12 +39,12 @@ class  PanelAdd extends React.Component{
             <div className="new-item-panel">
                 <form onSubmit={this.onsubmit}>
                     <p>
-                        <label onChange={this.onChangeTitle}>Titulo del libro</label>
-                        <input type="text" name="title" classNameI="input"></input>
+                        <label >Titulo del libro</label>
+                        <input type="text" name="title" classNameI="input" onChange={this.onChangeTitle}></input>
                     </p>
                     <p>
-                        <label onChange={this.onChangeImage}>Titulo del imagen</label>
-                        <input type="text" name="image" classNameI="input"></input>
+                        <label >Titulo del imagen</label>
+                        <input onChange={this.onChangeImage} type="text" name="image" classNameI="input"></input>
                     </p>
                     <p>
                         <label>Clasificacion</label>
