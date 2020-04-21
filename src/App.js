@@ -69,7 +69,7 @@ class App extends React.Component {
   }
   onRemove = id =>{
     var temp = [...this.state.books];
-    const res = temp.filter(item => item.id != id);
+    const res = temp.filter(item => item.id !== id);
 
     this.setState({books: [...res]});
     this.initBooks();  

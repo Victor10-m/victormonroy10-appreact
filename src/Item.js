@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import './Item.css'
 
@@ -39,15 +40,17 @@ class Item extends React.Component {
 
     render(){
     return(
+        
         <div className="item">
             <div className="image"><img src={'img/' + this.state.image} width="100%" /></div>
             <div className="title">{this.state.title}</div>
             <div className="rating">
                 <p>
-                    {
-                        this.state.stars.map(x => 
-                            <img src="img/star.png" width="32"/>
-                            )
+                    { 
+                        this.state.stars.map(x =>
+                        <img src="img/star.png" width="32"/>
+                        )
+                               
                     }
                 </p>
                 clasificacion:
@@ -67,6 +70,8 @@ class Item extends React.Component {
         
         );
     }
+    
 }
 
 export default Item;
+
